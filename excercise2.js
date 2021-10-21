@@ -1,8 +1,8 @@
 export const once = (func) => {
   let result;
-  return () => {
+  return (...args) => {
     if (func) {
-      result = func.apply(this, arguments);
+      result = func.apply(this, args);
       func = null;
     }
     return result;
