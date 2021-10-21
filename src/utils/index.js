@@ -1,10 +1,10 @@
 export const createUrlSearchParams = (query = {}, urlEncoded = false) => {
   const queryParams = [];
   const keys = Object.keys(query);
-  for (let i = 0, l = keys.length; i < l; i += 1) {
-    const qs = `${query[keys[i]]}`;
+  for (let key of keys) {
+    const qs = `${query[key]}`;
     const qsEncoded = urlEncoded ? encodeURIComponent(qs) : qs;
-    queryParams.push(`${keys[i]}=${qsEncoded}`);
+    queryParams.push(`${key}=${qsEncoded}`);
   }
   return queryParams.join("&");
 };
